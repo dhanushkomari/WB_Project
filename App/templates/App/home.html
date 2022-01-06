@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% load static %}
+
+{% block content %}
+<div class="container">
+    <div class="section-title">
+        <h2>Available Robots</h2>
+    </div>  
+        
+        <div class="row">
+            {% for i in cp_bots %}
+            
+            <div class="col-sm-2">
+                <div class="card">
+                    <div>
+                        <img src="/static{{i.image.url}}" alt="{{i.name}}" style = "width:100%; height: auto;">
+                    </div>
+                    <div class="card-header text-center">
+                        <a href="{% url 'App:select-bot' i.id %}"><b>{{i.bot_name}}</b></a>
+                                    </div>
+                    <div class="card-info text-center">
+                        <span>{{i.bot_color}}</span><br>
+                                           
+                    </div>
+                </div><br>
+            </div>            
+            {% endfor %}
+
+            
+        </div>    
+</div><br><br>
+
+{% endblock %}

@@ -1,0 +1,54 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% load static %}
+
+{% block content %}
+<div class="container">
+    <div class="section-title">
+        <h2>{{b.bot_name}}</h2>
+    </div>  
+
+    <div class="container">
+        <div class="card">
+            <div class="card-header">
+            {{b.bot_name|title}}
+            </div>
+            <div class="card-body">
+            <br><br>
+            <div class="row">
+                <div class="col-1"></div>
+                <div class="col-sm-3">
+                    <div>
+                        <img src="/static{{b.image.url}}" alt="{{b.name}}" style = "width:100%; height: auto;">
+                    </div>
+                </div>
+                <div class="col-sm-6">
+                    <!-- <h3>{{b.bot_name|title}}</h3><br> -->
+                    <form method = "POST">
+                        {% csrf_token %}
+                        <div class="form-outline mb-3">
+                            <label class="form-label" for="form3Example3">Mobile No</label><br>
+        
+                            <input type="text" id="" class="form-control form-control-md" required placeholder="Enter Mobile Number" name = "mob_no" /> <br>
+
+                            <button name = 'call_button' type="submit" class="btn btn-md btn-secondary">&nbsp;&nbsp;&nbsp; Call&nbsp;&nbsp;&nbsp;&nbsp;</button>
+                        </div>
+                    </form>
+                    <br>
+                    <form>
+                        <div class="form-outline mb-3">
+                            <label class="form-label" for="form3Example3">Voice Bot</label><br>
+                                <a href="{% url 'App:select-vbot' b.id %}" class="btn btn-warning btn-md">Voice Bot Mode</a>
+                    </form>
+                </div>
+                <div class="col-2"></div>
+            </div>
+            </div>
+        </div>
+    </div>
+        
+        
+</div>
+
+{% endblock %}
