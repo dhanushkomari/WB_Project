@@ -73,5 +73,3 @@ def SelectVBBotView(request, id):
         v = VBSettings.objects.create(username = request.user.username, time = time())
 
     return render(request, 'App/VB_detail.html', {'v':v, 'b':b})
-
-    

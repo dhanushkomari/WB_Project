@@ -30,10 +30,15 @@
                     <br>
                     <a href="{% url 'App:speaker-on' b.id%}" 
                        class = "btn btn-danger btn-sm">
-                       Speaker
+                       Speaker on
                     </a>
 
+                    <a href="{% url 'App:speaker-off' b.id%}" 
+                       class = "btn btn-info btn-sm">
+                       Speaker Off
+                    </a>
 
+                    <br><br>
                     <a href="{% url 'App:select-bot' b.id %}" class = "btn btn-success btn-sm">Call Another Number</a>
                     <br>
                     <!-- <a href="" class="btn btn-secondary btn-sm">Speaker</a> -->
