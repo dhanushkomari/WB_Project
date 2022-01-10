@@ -41,8 +41,9 @@ class Bot(models.Model):
 
 
 # VOICE BOT SETTINGS..............................................
-class VBSettings(models.Model):
+class VBSettings(models.Model):    
     username = models.CharField(max_length = 30, null = True, blank = True)
+    bot_name = models.CharField(max_length = 200, null = True, blank = True)
     time = models.DecimalField(max_digits=20, decimal_places=3)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now = True)
@@ -59,6 +60,7 @@ class VBSettings(models.Model):
 # Mobile Settings ...............................................
 class MobileSettings(models.Model):
     username = models.CharField(max_length = 30, null = True, blank = True)
+    bot_name = models.CharField(max_length = 200, null = True, blank = True)
     mob_no = models.CharField(max_length = 10)
     speaker = models.BooleanField(default = False)
     time = models.DecimalField(max_digits=20, decimal_places=3)
@@ -72,3 +74,17 @@ class MobileSettings(models.Model):
     def __str__(self):
         return str(self.id)
 
+
+# Hand Movement time settings .......................................
+class HandSettings(models.Model):
+    time = models.DecimalField(max_digits = 20, decimal_places = 4)
+    bot_name = models.CharField(max_length = 100)
+    username = models.CharField(max_length = 30, null = True, blank = True)
+
+
+    class Meta:
+        verbose_name = 'Hand Setting'
+        verbose_name_plural = 'Hand Settings'
+
+    def __str__(self):
+        return str(self.id)

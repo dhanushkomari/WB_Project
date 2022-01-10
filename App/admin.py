@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import  Restaurant, Bot, VBSettings, MobileSettings
+from .models import  Restaurant, Bot, VBSettings, MobileSettings, HandSettings
 # Register your models here.
 
 class RestaurantAdmin(admin.ModelAdmin):
@@ -18,7 +18,11 @@ class VBSettingsAdmin(admin.ModelAdmin):
 admin.site.register(VBSettings, VBSettingsAdmin)
 
 class MobileSettingsAdmin(admin.ModelAdmin):
-    list_display = ['id', 'username', 'mob_no', 'speaker', 'time']
+    list_display = ['id', 'username','bot_name', 'mob_no', 'speaker', 'time']
     list_per_page = 20
 admin.site.register(MobileSettings, MobileSettingsAdmin)
 
+class HandSettingsAdmin(admin.ModelAdmin):
+    list_display = ['id', 'time', 'bot_name', 'username']
+    list_per_page = 20
+admin.site.register(HandSettings, HandSettingsAdmin)

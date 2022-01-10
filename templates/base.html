@@ -57,7 +57,23 @@
      
       <nav id="navbar" class="navbar">
         <ul>
-          <li><a class="nav-link scrollto " href="{% url 'App:home' %}">Home</a></li>        
+          <li><a class="nav-link scrollto " href="{% url 'App:home' %}">Home</a></li>
+          
+          <li class="dropdown">
+            <a href="#">
+              <span>status</span>
+              <!-- <i class="bi bi-chevron-down"> -->
+              </i>
+            </a>
+            <ul>
+              {% for i in cp_bots %}
+              <li>
+                <a href="{% url 'App:bot-status' i.id %}">{{i}}</a>
+              </li>
+              {% endfor %}
+             </ul>
+          </li>
+
           <li><a href="{% url 'AccountsApp:logout' %}" class="nav-link scrollto ">Logout</a></li>
         </ul>
         <i class="bi bi-list mobile-nav-toggle"></i>

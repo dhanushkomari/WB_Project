@@ -1,5 +1,5 @@
 from rest_framework.fields import ModelField
-from App.models import VBSettings, MobileSettings
+from App.models import VBSettings, MobileSettings, HandSettings
 from rest_framework import serializers
 
 class VBSettingsSerializer(serializers.ModelSerializer):
@@ -16,3 +16,8 @@ class MobileSpeakerSerializer(serializers.ModelSerializer):
     class Meta:
         model = MobileSettings
         fields = ('speaker', )
+
+class HandSettingsSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = HandSettings
+        fields = '__all__'
